@@ -9,9 +9,10 @@ Official implementation of **SCAFDS**, a seven-stage forensic fraud detection pi
 > Mohammad Nasir Uddin (corresponding), Westcliff University
 > Asaduzzaman Anik, Rahnuma Tabassum Orpita, Eklachur Rahman Bhuiyan, Marjahan Risalat, SM Wali Ullah
 > *Under review at CAAI Transactions on Intelligence Technology, 2026 (CIT-2026-09-0825)*
-> Mohammad Nasir Uddin  
-> Visual Data Analyst and Applied AI Researcher, Taskimpetus Inc.  
-> *Submitted to IEEE Access, 2026*
+> Mohammad Nasir Uddin
+> > **Mohammad Nasir Uddin** (corresponding), Westcliff University<br>
+> Asaduzzaman Anik, Rahnuma Tabassum Orpita, Eklachur Rahman Bhuiyan, Marjahan Risalat, SM Wali Ullah<br>
+> *Under review at CAAI Transactions on Intelligence Technology, 2026 (CIT-2026-09-0825)*
 
 ---
 

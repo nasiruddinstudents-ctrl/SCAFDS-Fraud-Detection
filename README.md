@@ -1,11 +1,14 @@
 # SCAFDS: Systemic Contagion-Aware Fraud Detection System
 
-[![IEEE Access](https://img.shields.io/badge/IEEE-Access-blue)](https://ieeeaccess.ieee.org/)
+[![Status](https://img.shields.io/badge/Status-Under%20Review%20(CAAI%20TIT)-yellow)](https://arxiv.org/abs/2605.18913)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.18913-b31b1b)](https://arxiv.org/abs/2605.18913)
 [![Patent](https://img.shields.io/badge/USPTO-Provisional%2064%2F061%2C083-orange)](https://www.uspto.gov/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 Official implementation of **SCAFDS**, a seven-stage forensic fraud detection pipeline combining edge-feature-informed spatial-temporal graph attention networks with attribution-conditioned SAR narrative generation for interbank fraud surveillance.
-
+> Mohammad Nasir Uddin (corresponding), Westcliff University
+> Asaduzzaman Anik, Rahnuma Tabassum Orpita, Eklachur Rahman Bhuiyan, Marjahan Risalat, SM Wali Ullah
+> *Under review at CAAI Transactions on Intelligence Technology, 2026 (CIT-2026-09-0825)*
 > Mohammad Nasir Uddin  
 > Visual Data Analyst and Applied AI Researcher, Taskimpetus Inc.  
 > *Submitted to IEEE Access, 2026*
@@ -199,9 +202,9 @@ USPTO Provisional Patent Application No. 64/061,083 (Filed May 8, 2026)
 @article{uddin2026scafds,
   title={SCAFDS: A Systemic Contagion-Aware Fraud Detection System for Interbank Forensic Surveillance},
   author={Uddin, Mohammad Nasir},
-  journal={IEEE Access},
+  journal={CAAI},
   year={2026},
-  publisher={IEEE}
+  publisher={CAAI}
 }
 ```
 

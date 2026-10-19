@@ -1,7 +1,7 @@
 # SCAFDS: Systemic Contagion-Aware Fraud Detection System
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.18913-b31b1b)](https://arxiv.org/abs/2605.18913)
-[![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI_HERE.svg)](https://doi.org/ZENODO_DOI_HERE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23485363.svg)](https://doi.org/10.5281/zenodo.23485363)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-green)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
@@ -59,7 +59,7 @@ python amlworld/aml_graph_train_v2.py --trans HI-Small_Trans.csv --seeds 5 --epo
 The system design is the subject of U.S. provisional patent application No. 64/061,083 (filed 8 May 2026).
 
 ## Citation
-See `CITATION.cff`, or cite the archived release: https://doi.org/ZENODO_DOI_HERE
+See `CITATION.cff`, or cite the archived release: https://doi.org/10.5281/zenodo.23485363
 
 ## Contact
 Mohammad Nasir Uddin · Westcliff University · m.uddin.258@westcliff.edu · ORCID [0009-0009-0990-4616](https://orcid.org/0009-0009-0990-4616)

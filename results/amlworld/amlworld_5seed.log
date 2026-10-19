@@ -1,0 +1,42 @@
+/venv/main/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Excluded 1108 rows after 2022-09-10 23:59 (documented artifact tail)
+Train-window transactions (features only, Sept 1-7): 3731672
+Test-window transactions (labels only, Sept 9-10): 862792
+NOTE: labels for EVERY bank (train/val/test split role alike) come from the test window. This is a transductive future-label design, not temporal generalization -- see module docstring.
+Total banks (universe): 30470
+Active banks (>= 5 test-window transactions): 8014 / 30470
+  -- EXCLUDED (insufficient test-window activity, not auto-negative): 22456
+Positive banks among active set: 401 / 8014 (5.00% prevalence)
+Rate threshold (95th percentile among active banks): 0.00134
+Active banks WITH train-window history (final evaluation set): 8014 / 8014
+
+Seed 0 split sizes -- train: 4006 (200 pos), val: 1602 (80 pos), test: 2406 (121 pos), test prevalence: 5.03%
+seed=0 NodeOnly        AUPRC=0.3439 AUROC=0.9408 (4.0s)
+seed=0 OrdinaryEdge    AUPRC=0.3025 AUROC=0.9398 (3.6s)
+seed=0 SCAFDS-style    AUPRC=0.3146 AUROC=0.9408 (3.6s)
+seed=1 NodeOnly        AUPRC=0.2679 AUROC=0.9332 (3.1s)
+seed=1 OrdinaryEdge    AUPRC=0.2796 AUROC=0.9314 (3.6s)
+seed=1 SCAFDS-style    AUPRC=0.2663 AUROC=0.9318 (3.6s)
+seed=2 NodeOnly        AUPRC=0.2506 AUROC=0.9180 (3.2s)
+seed=2 OrdinaryEdge    AUPRC=0.3048 AUROC=0.9419 (3.6s)
+seed=2 SCAFDS-style    AUPRC=0.3523 AUROC=0.9483 (3.6s)
+seed=3 NodeOnly        AUPRC=0.2649 AUROC=0.9243 (3.1s)
+seed=3 OrdinaryEdge    AUPRC=0.3028 AUROC=0.9408 (3.6s)
+seed=3 SCAFDS-style    AUPRC=0.3006 AUROC=0.9399 (3.6s)
+seed=4 NodeOnly        AUPRC=0.2824 AUROC=0.9355 (3.2s)
+seed=4 OrdinaryEdge    AUPRC=0.2743 AUROC=0.9343 (3.6s)
+seed=4 SCAFDS-style    AUPRC=0.2850 AUROC=0.9357 (3.6s)
+
+=== SUMMARY (active-bank-restricted, 8014 evaluable banks) ===
+Mean test-window prevalence across seeds: 5.03%
+TrivialDegree   AUPRC=0.324+/-0.020  AUROC=0.942+/-0.004
+NodeOnly        AUPRC=0.282+/-0.033  AUROC=0.930+/-0.008
+OrdinaryEdge    AUPRC=0.293+/-0.013  AUROC=0.938+/-0.004
+SCAFDS-style    AUPRC=0.304+/-0.029  AUROC=0.939+/-0.006
+
+=== PAIRED-DIFFERENCE STATISTICS (same test banks within each seed) ===
+SCAFDS-style minus OrdinaryEdge (AUPRC): mean paired diff = +0.0110, 95% CI [-0.0175, +0.0394] (n=5 seeds)
+SCAFDS-style minus TrivialDegree (AUPRC): mean paired diff = -0.0207, 95% CI [-0.0498, +0.0083] (n=5 seeds)
+OrdinaryEdge minus TrivialDegree (AUPRC): mean paired diff = -0.0317, 95% CI [-0.0539, -0.0095] (n=5 seeds)
+NodeOnly minus TrivialDegree (AUPRC): mean paired diff = -0.0426, 95% CI [-0.1048, +0.0197] (n=5 seeds)

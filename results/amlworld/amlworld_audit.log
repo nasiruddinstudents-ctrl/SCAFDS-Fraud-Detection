@@ -1,0 +1,85 @@
+======================================================================
+STEP 1: Load and inspect transaction file structure
+======================================================================
+Shape: (5078345, 11)
+Columns: ['Timestamp', 'From Bank', 'Account', 'To Bank', 'Account.1', 'Amount Received', 'Receiving Currency', 'Amount Paid', 'Payment Currency', 'Payment Format', 'Is Laundering']
+
+Dtypes:
+Timestamp                 str
+From Bank               int64
+Account                   str
+To Bank                 int64
+Account.1                 str
+Amount Received       float64
+Receiving Currency        str
+Amount Paid           float64
+Payment Currency          str
+Payment Format            str
+Is Laundering           int64
+dtype: object
+
+First 3 rows:
+          Timestamp  From Bank    Account  To Bank  Account.1  Amount Received Receiving Currency  Amount Paid Payment Currency Payment Format  Is Laundering
+0  2022/09/01 00:20         10  8000EBD30       10  8000EBD30          3697.34          US Dollar      3697.34        US Dollar   Reinvestment              0
+1  2022/09/01 00:20       3208  8000F4580        1  8000F5340             0.01          US Dollar         0.01        US Dollar         Cheque              0
+2  2022/09/01 00:00       3209  8000F4670     3209  8000F4670         14675.57          US Dollar     14675.57        US Dollar   Reinvestment              0
+
+======================================================================
+STEP 2: Label provenance and class balance (audit item b, e)
+======================================================================
+Label column found: 'Is Laundering'
+Is Laundering
+0    5073168
+1       5177
+Name: count, dtype: int64
+Positive rate: 0.1019%
+
+======================================================================
+STEP 3: Identifier granularity -- account vs institution (audit item c)
+======================================================================
+Bank-related columns: ['From Bank', 'To Bank']
+Account-related columns: ['Account', 'Account.1']
+Unique values in 'From Bank': 30470
+Unique values in 'To Bank': 15811
+Union of unique banks across both columns: 30470
+>>> If this number is in the tens/hundreds (not thousands), a bank-to-bank
+>>> graph IS constructable -- this is the institution-level signal we need.
+Unique values in 'Account': 496995
+Unique values in 'Account.1': 420636
+
+======================================================================
+STEP 4: Temporal field check (audit item d)
+======================================================================
+Time-related columns: ['Timestamp']
+Sample values from 'Timestamp': ['2022/09/01 00:20', '2022/09/01 00:20', '2022/09/01 00:00', '2022/09/01 00:02', '2022/09/01 00:06']
+Min: 2022/09/01 00:00, Max: 2022/09/18 16:18
+>>> Confirm: does the label ('Is Laundering') require knowledge of transactions
+>>> AFTER this timestamp to determine? If patterns span multiple transactions over
+>>> time, a naive split could leak future information -- check the Patterns file.
+
+======================================================================
+STEP 5: Missingness
+======================================================================
+Timestamp             0
+From Bank             0
+Account               0
+To Bank               0
+Account.1             0
+Amount Received       0
+Receiving Currency    0
+Amount Paid           0
+Payment Currency      0
+Payment Format        0
+Is Laundering         0
+dtype: int64
+
+======================================================================
+AUDIT SUMMARY -- fill in before proceeding to graph construction
+======================================================================
+(a) Synthetic or real: SYNTHETIC (per IBM/AMLWorld documentation -- confirmed)
+(b) Label meaning: 'Is Laundering' -- confirm against Patterns file for what pattern(s) it flags
+(c) Granularity: see bank/account unique counts above
+(d) Temporal leakage risk: manual check required against Patterns file logic
+(e) Class balance: see Step 2 positive rate
+(f) Recommended prediction level: BANK-level graph if bank union count is small (tens-hundreds);
+    otherwise ACCOUNT-level only -- do not force an institution aggregation without this check.

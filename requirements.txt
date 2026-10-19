@@ -1,0 +1,12 @@
+# Versions from the GPU environment used for Tables 5-7 (see results/environment_gpu.txt)
+torch==2.14.1
+torch-geometric==2.8.1
+numpy==2.5.4
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+networkx==3.7
+# Additionally required by scafds_train_v3.py (Tables 3-4)
+xgboost
+lightgbm
+shap

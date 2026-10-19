@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SCAFDS: code and synthetic data for an explainable graph intelligence framework for interbank fraud surveillance"
+version: 1.0.0
+date-released: 2026-10-19
+license: MIT
+repository-code: "https://github.com/nasiruddinstudents-ctrl/SCAFDS-Fraud-Detection"
+authors:
+  - family-names: Uddin
+    given-names: Mohammad Nasir
+    affiliation: "Westcliff University"
+    orcid: "https://orcid.org/0009-0009-0990-4616"
+  - family-names: Anik
+    given-names: Asaduzzaman
+    affiliation: "Northern University Bangladesh"
+  - family-names: Orpita
+    given-names: Rahnuma Tabassum
+    affiliation: "Stanton University"
+  - family-names: Bhuiyan
+    given-names: Eklachur Rahman
+    affiliation: "Washington University of Science and Technology"
+  - family-names: Risalat
+    given-names: Marjahan
+    affiliation: "Stanton University"
+  - family-names: Wali Ullah
+    given-names: SM
+    affiliation: "Stanton University"

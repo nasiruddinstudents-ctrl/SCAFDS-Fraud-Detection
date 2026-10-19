@@ -1,0 +1,50 @@
+/venv/main/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+seed=0 variant=SCAFDS-SAR           AUPRC=0.3186 AUROC=0.6960  (3.4s)
+seed=0 variant=SCAFDS-Geographic    AUPRC=0.2686 AUROC=0.6575  (2.4s)
+seed=0 variant=SCAFDS-AssetSim      AUPRC=0.2652 AUROC=0.6532  (2.4s)
+seed=0 variant=SCAFDS-NoEdge        AUPRC=0.2709 AUROC=0.6640  (2.1s)
+seed=1 variant=SCAFDS-SAR           AUPRC=0.2180 AUROC=0.6435  (2.3s)
+seed=1 variant=SCAFDS-Geographic    AUPRC=0.2158 AUROC=0.6408  (2.4s)
+seed=1 variant=SCAFDS-AssetSim      AUPRC=0.2160 AUROC=0.6404  (2.3s)
+seed=1 variant=SCAFDS-NoEdge        AUPRC=0.2106 AUROC=0.6206  (2.1s)
+seed=2 variant=SCAFDS-SAR           AUPRC=0.2826 AUROC=0.7004  (2.3s)
+seed=2 variant=SCAFDS-Geographic    AUPRC=0.2376 AUROC=0.6604  (2.3s)
+seed=2 variant=SCAFDS-AssetSim      AUPRC=0.2396 AUROC=0.6628  (2.3s)
+seed=2 variant=SCAFDS-NoEdge        AUPRC=0.2252 AUROC=0.6366  (2.1s)
+seed=3 variant=SCAFDS-SAR           AUPRC=0.2145 AUROC=0.6073  (2.3s)
+seed=3 variant=SCAFDS-Geographic    AUPRC=0.2089 AUROC=0.6017  (2.3s)
+seed=3 variant=SCAFDS-AssetSim      AUPRC=0.2074 AUROC=0.6001  (2.4s)
+seed=3 variant=SCAFDS-NoEdge        AUPRC=0.2187 AUROC=0.6033  (2.1s)
+seed=4 variant=SCAFDS-SAR           AUPRC=0.2227 AUROC=0.6518  (2.3s)
+seed=4 variant=SCAFDS-Geographic    AUPRC=0.2047 AUROC=0.6282  (2.3s)
+seed=4 variant=SCAFDS-AssetSim      AUPRC=0.1980 AUROC=0.6195  (2.3s)
+seed=4 variant=SCAFDS-NoEdge        AUPRC=0.1959 AUROC=0.6167  (1.9s)
+seed=5 variant=SCAFDS-SAR           AUPRC=0.2466 AUROC=0.6711  (2.3s)
+seed=5 variant=SCAFDS-Geographic    AUPRC=0.2364 AUROC=0.6603  (2.3s)
+seed=5 variant=SCAFDS-AssetSim      AUPRC=0.2326 AUROC=0.6557  (2.2s)
+seed=5 variant=SCAFDS-NoEdge        AUPRC=0.2197 AUROC=0.6336  (1.9s)
+seed=6 variant=SCAFDS-SAR           AUPRC=0.2421 AUROC=0.6387  (2.3s)
+seed=6 variant=SCAFDS-Geographic    AUPRC=0.2241 AUROC=0.6168  (2.3s)
+seed=6 variant=SCAFDS-AssetSim      AUPRC=0.2254 AUROC=0.6182  (2.2s)
+seed=6 variant=SCAFDS-NoEdge        AUPRC=0.2268 AUROC=0.6190  (1.9s)
+seed=7 variant=SCAFDS-SAR           AUPRC=0.2275 AUROC=0.6173  (2.3s)
+seed=7 variant=SCAFDS-Geographic    AUPRC=0.2224 AUROC=0.6110  (2.2s)
+seed=7 variant=SCAFDS-AssetSim      AUPRC=0.2226 AUROC=0.6117  (2.2s)
+seed=7 variant=SCAFDS-NoEdge        AUPRC=0.2437 AUROC=0.6163  (2.0s)
+seed=8 variant=SCAFDS-SAR           AUPRC=0.2654 AUROC=0.6142  (2.3s)
+seed=8 variant=SCAFDS-Geographic    AUPRC=0.2525 AUROC=0.6031  (2.2s)
+seed=8 variant=SCAFDS-AssetSim      AUPRC=0.2521 AUROC=0.6020  (2.2s)
+seed=8 variant=SCAFDS-NoEdge        AUPRC=0.2632 AUROC=0.6075  (1.9s)
+seed=9 variant=SCAFDS-SAR           AUPRC=0.2308 AUROC=0.6250  (2.3s)
+seed=9 variant=SCAFDS-Geographic    AUPRC=0.2186 AUROC=0.6081  (2.3s)
+seed=9 variant=SCAFDS-AssetSim      AUPRC=0.2170 AUROC=0.6087  (2.3s)
+seed=9 variant=SCAFDS-NoEdge        AUPRC=0.2250 AUROC=0.6188  (2.1s)
+
+Wrote ../results/probe_10seed.csv
+
+--- Summary (mean +/- std over seeds) ---
+SCAFDS-SAR           AUPRC=0.247+/-0.031  AUROC=0.647+/-0.032
+SCAFDS-Geographic    AUPRC=0.229+/-0.019  AUROC=0.629+/-0.023
+SCAFDS-AssetSim      AUPRC=0.228+/-0.019  AUROC=0.627+/-0.022
+SCAFDS-NoEdge        AUPRC=0.230+/-0.022  AUROC=0.624+/-0.017

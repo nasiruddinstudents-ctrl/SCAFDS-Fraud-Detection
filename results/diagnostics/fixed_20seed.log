@@ -1,0 +1,141 @@
+/venv/main/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Building graph + PageRank for seed 0...
+seed=0 variant=SCAFDS-SAR                             AUPRC=0.9605 AUROC=0.9898  (4.5s)  [LR ceiling this seed: 0.905]
+seed=0 variant=SCAFDS-Geographic                      AUPRC=0.9654 AUROC=0.9912  (3.0s)  [LR ceiling this seed: 0.905]
+seed=0 variant=SCAFDS-AssetSim                        AUPRC=0.9572 AUROC=0.9887  (3.4s)  [LR ceiling this seed: 0.905]
+seed=0 variant=SCAFDS-NoEdge                          AUPRC=0.9630 AUROC=0.9901  (3.5s)  [LR ceiling this seed: 0.905]
+seed=0 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9808 AUROC=0.9953  (3.4s)  [LR ceiling this seed: 0.905]
+Building graph + PageRank for seed 1...
+seed=1 variant=SCAFDS-SAR                             AUPRC=0.9595 AUROC=0.9913  (3.5s)  [LR ceiling this seed: 0.871]
+seed=1 variant=SCAFDS-Geographic                      AUPRC=0.9527 AUROC=0.9895  (3.6s)  [LR ceiling this seed: 0.871]
+seed=1 variant=SCAFDS-AssetSim                        AUPRC=0.9567 AUROC=0.9906  (3.6s)  [LR ceiling this seed: 0.871]
+seed=1 variant=SCAFDS-NoEdge                          AUPRC=0.9281 AUROC=0.9821  (3.4s)  [LR ceiling this seed: 0.871]
+seed=1 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9785 AUROC=0.9958  (3.4s)  [LR ceiling this seed: 0.871]
+Building graph + PageRank for seed 2...
+seed=2 variant=SCAFDS-SAR                             AUPRC=0.9677 AUROC=0.9918  (3.1s)  [LR ceiling this seed: 0.867]
+seed=2 variant=SCAFDS-Geographic                      AUPRC=0.9674 AUROC=0.9918  (3.1s)  [LR ceiling this seed: 0.867]
+seed=2 variant=SCAFDS-AssetSim                        AUPRC=0.9700 AUROC=0.9926  (3.1s)  [LR ceiling this seed: 0.867]
+seed=2 variant=SCAFDS-NoEdge                          AUPRC=0.9701 AUROC=0.9926  (3.3s)  [LR ceiling this seed: 0.867]
+seed=2 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9636 AUROC=0.9903  (3.4s)  [LR ceiling this seed: 0.867]
+Building graph + PageRank for seed 3...
+seed=3 variant=SCAFDS-SAR                             AUPRC=0.9448 AUROC=0.9871  (2.6s)  [LR ceiling this seed: 0.836]
+seed=3 variant=SCAFDS-Geographic                      AUPRC=0.9514 AUROC=0.9891  (3.1s)  [LR ceiling this seed: 0.836]
+seed=3 variant=SCAFDS-AssetSim                        AUPRC=0.9304 AUROC=0.9832  (3.1s)  [LR ceiling this seed: 0.836]
+seed=3 variant=SCAFDS-NoEdge                          AUPRC=0.9634 AUROC=0.9921  (3.4s)  [LR ceiling this seed: 0.836]
+seed=3 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9749 AUROC=0.9949  (3.4s)  [LR ceiling this seed: 0.836]
+Building graph + PageRank for seed 4...
+seed=4 variant=SCAFDS-SAR                             AUPRC=0.9491 AUROC=0.9896  (3.5s)  [LR ceiling this seed: 0.831]
+seed=4 variant=SCAFDS-Geographic                      AUPRC=0.9484 AUROC=0.9893  (3.4s)  [LR ceiling this seed: 0.831]
+seed=4 variant=SCAFDS-AssetSim                        AUPRC=0.9450 AUROC=0.9884  (3.1s)  [LR ceiling this seed: 0.831]
+seed=4 variant=SCAFDS-NoEdge                          AUPRC=0.9245 AUROC=0.9831  (3.2s)  [LR ceiling this seed: 0.831]
+seed=4 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9664 AUROC=0.9933  (3.4s)  [LR ceiling this seed: 0.831]
+Building graph + PageRank for seed 5...
+seed=5 variant=SCAFDS-SAR                             AUPRC=0.9051 AUROC=0.9759  (3.1s)  [LR ceiling this seed: 0.819]
+seed=5 variant=SCAFDS-Geographic                      AUPRC=0.9100 AUROC=0.9774  (3.5s)  [LR ceiling this seed: 0.819]
+seed=5 variant=SCAFDS-AssetSim                        AUPRC=0.9028 AUROC=0.9754  (3.1s)  [LR ceiling this seed: 0.819]
+seed=5 variant=SCAFDS-NoEdge                          AUPRC=0.8852 AUROC=0.9686  (3.4s)  [LR ceiling this seed: 0.819]
+seed=5 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9763 AUROC=0.9952  (3.4s)  [LR ceiling this seed: 0.819]
+Building graph + PageRank for seed 6...
+seed=6 variant=SCAFDS-SAR                             AUPRC=0.9590 AUROC=0.9910  (3.5s)  [LR ceiling this seed: 0.791]
+seed=6 variant=SCAFDS-Geographic                      AUPRC=0.9618 AUROC=0.9918  (2.7s)  [LR ceiling this seed: 0.791]
+seed=6 variant=SCAFDS-AssetSim                        AUPRC=0.9545 AUROC=0.9899  (2.8s)  [LR ceiling this seed: 0.791]
+seed=6 variant=SCAFDS-NoEdge                          AUPRC=0.9298 AUROC=0.9836  (2.5s)  [LR ceiling this seed: 0.791]
+seed=6 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9777 AUROC=0.9954  (2.5s)  [LR ceiling this seed: 0.791]
+Building graph + PageRank for seed 7...
+seed=7 variant=SCAFDS-SAR                             AUPRC=0.9517 AUROC=0.9894  (2.6s)  [LR ceiling this seed: 0.853]
+seed=7 variant=SCAFDS-Geographic                      AUPRC=0.9467 AUROC=0.9880  (2.6s)  [LR ceiling this seed: 0.853]
+seed=7 variant=SCAFDS-AssetSim                        AUPRC=0.9542 AUROC=0.9900  (2.7s)  [LR ceiling this seed: 0.853]
+seed=7 variant=SCAFDS-NoEdge                          AUPRC=0.9336 AUROC=0.9846  (2.6s)  [LR ceiling this seed: 0.853]
+seed=7 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9805 AUROC=0.9961  (3.0s)  [LR ceiling this seed: 0.853]
+Building graph + PageRank for seed 8...
+seed=8 variant=SCAFDS-SAR                             AUPRC=0.9399 AUROC=0.9855  (2.9s)  [LR ceiling this seed: 0.804]
+seed=8 variant=SCAFDS-Geographic                      AUPRC=0.9401 AUROC=0.9856  (3.5s)  [LR ceiling this seed: 0.804]
+seed=8 variant=SCAFDS-AssetSim                        AUPRC=0.9385 AUROC=0.9851  (3.6s)  [LR ceiling this seed: 0.804]
+seed=8 variant=SCAFDS-NoEdge                          AUPRC=0.9569 AUROC=0.9902  (3.4s)  [LR ceiling this seed: 0.804]
+seed=8 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9789 AUROC=0.9956  (3.4s)  [LR ceiling this seed: 0.804]
+Building graph + PageRank for seed 9...
+seed=9 variant=SCAFDS-SAR                             AUPRC=0.9729 AUROC=0.9938  (3.5s)  [LR ceiling this seed: 0.797]
+seed=9 variant=SCAFDS-Geographic                      AUPRC=0.9734 AUROC=0.9939  (3.6s)  [LR ceiling this seed: 0.797]
+seed=9 variant=SCAFDS-AssetSim                        AUPRC=0.9751 AUROC=0.9943  (3.6s)  [LR ceiling this seed: 0.797]
+seed=9 variant=SCAFDS-NoEdge                          AUPRC=0.9760 AUROC=0.9946  (3.4s)  [LR ceiling this seed: 0.797]
+seed=9 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9897 AUROC=0.9980  (3.4s)  [LR ceiling this seed: 0.797]
+Building graph + PageRank for seed 10...
+seed=10 variant=SCAFDS-SAR                             AUPRC=0.9441 AUROC=0.9815  (3.5s)  [LR ceiling this seed: 0.804]
+seed=10 variant=SCAFDS-Geographic                      AUPRC=0.9449 AUROC=0.9820  (3.6s)  [LR ceiling this seed: 0.804]
+seed=10 variant=SCAFDS-AssetSim                        AUPRC=0.9450 AUROC=0.9819  (3.6s)  [LR ceiling this seed: 0.804]
+seed=10 variant=SCAFDS-NoEdge                          AUPRC=0.9657 AUROC=0.9900  (3.4s)  [LR ceiling this seed: 0.804]
+seed=10 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9684 AUROC=0.9912  (3.4s)  [LR ceiling this seed: 0.804]
+Building graph + PageRank for seed 11...
+seed=11 variant=SCAFDS-SAR                             AUPRC=0.9653 AUROC=0.9921  (3.5s)  [LR ceiling this seed: 0.867]
+seed=11 variant=SCAFDS-Geographic                      AUPRC=0.9655 AUROC=0.9921  (3.7s)  [LR ceiling this seed: 0.867]
+seed=11 variant=SCAFDS-AssetSim                        AUPRC=0.9630 AUROC=0.9914  (2.7s)  [LR ceiling this seed: 0.867]
+seed=11 variant=SCAFDS-NoEdge                          AUPRC=0.9445 AUROC=0.9857  (2.5s)  [LR ceiling this seed: 0.867]
+seed=11 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9707 AUROC=0.9933  (2.5s)  [LR ceiling this seed: 0.867]
+Building graph + PageRank for seed 12...
+seed=12 variant=SCAFDS-SAR                             AUPRC=0.9267 AUROC=0.9850  (2.6s)  [LR ceiling this seed: 0.826]
+seed=12 variant=SCAFDS-Geographic                      AUPRC=0.9236 AUROC=0.9842  (2.6s)  [LR ceiling this seed: 0.826]
+seed=12 variant=SCAFDS-AssetSim                        AUPRC=0.9347 AUROC=0.9869  (2.6s)  [LR ceiling this seed: 0.826]
+seed=12 variant=SCAFDS-NoEdge                          AUPRC=0.9277 AUROC=0.9849  (3.3s)  [LR ceiling this seed: 0.826]
+seed=12 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9554 AUROC=0.9913  (2.5s)  [LR ceiling this seed: 0.826]
+Building graph + PageRank for seed 13...
+seed=13 variant=SCAFDS-SAR                             AUPRC=0.9383 AUROC=0.9856  (2.9s)  [LR ceiling this seed: 0.843]
+seed=13 variant=SCAFDS-Geographic                      AUPRC=0.9359 AUROC=0.9848  (2.7s)  [LR ceiling this seed: 0.843]
+seed=13 variant=SCAFDS-AssetSim                        AUPRC=0.9390 AUROC=0.9857  (2.7s)  [LR ceiling this seed: 0.843]
+seed=13 variant=SCAFDS-NoEdge                          AUPRC=0.9151 AUROC=0.9787  (2.8s)  [LR ceiling this seed: 0.843]
+seed=13 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9613 AUROC=0.9915  (2.5s)  [LR ceiling this seed: 0.843]
+Building graph + PageRank for seed 14...
+seed=14 variant=SCAFDS-SAR                             AUPRC=0.9336 AUROC=0.9828  (2.6s)  [LR ceiling this seed: 0.777]
+seed=14 variant=SCAFDS-Geographic                      AUPRC=0.9340 AUROC=0.9829  (2.6s)  [LR ceiling this seed: 0.777]
+seed=14 variant=SCAFDS-AssetSim                        AUPRC=0.9443 AUROC=0.9860  (2.7s)  [LR ceiling this seed: 0.777]
+seed=14 variant=SCAFDS-NoEdge                          AUPRC=0.9198 AUROC=0.9786  (2.5s)  [LR ceiling this seed: 0.777]
+seed=14 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9723 AUROC=0.9936  (2.6s)  [LR ceiling this seed: 0.777]
+Building graph + PageRank for seed 15...
+seed=15 variant=SCAFDS-SAR                             AUPRC=0.9345 AUROC=0.9845  (3.1s)  [LR ceiling this seed: 0.851]
+seed=15 variant=SCAFDS-Geographic                      AUPRC=0.9362 AUROC=0.9850  (3.1s)  [LR ceiling this seed: 0.851]
+seed=15 variant=SCAFDS-AssetSim                        AUPRC=0.9363 AUROC=0.9852  (3.1s)  [LR ceiling this seed: 0.851]
+seed=15 variant=SCAFDS-NoEdge                          AUPRC=0.9385 AUROC=0.9855  (3.3s)  [LR ceiling this seed: 0.851]
+seed=15 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9568 AUROC=0.9907  (3.4s)  [LR ceiling this seed: 0.851]
+Building graph + PageRank for seed 16...
+seed=16 variant=SCAFDS-SAR                             AUPRC=0.9650 AUROC=0.9915  (3.1s)  [LR ceiling this seed: 0.830]
+seed=16 variant=SCAFDS-Geographic                      AUPRC=0.9647 AUROC=0.9914  (3.1s)  [LR ceiling this seed: 0.830]
+seed=16 variant=SCAFDS-AssetSim                        AUPRC=0.9654 AUROC=0.9917  (3.1s)  [LR ceiling this seed: 0.830]
+seed=16 variant=SCAFDS-NoEdge                          AUPRC=0.9337 AUROC=0.9821  (3.0s)  [LR ceiling this seed: 0.830]
+seed=16 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9782 AUROC=0.9952  (3.5s)  [LR ceiling this seed: 0.830]
+Building graph + PageRank for seed 17...
+seed=17 variant=SCAFDS-SAR                             AUPRC=0.9453 AUROC=0.9847  (3.1s)  [LR ceiling this seed: 0.837]
+seed=17 variant=SCAFDS-Geographic                      AUPRC=0.9419 AUROC=0.9834  (3.1s)  [LR ceiling this seed: 0.837]
+seed=17 variant=SCAFDS-AssetSim                        AUPRC=0.9399 AUROC=0.9830  (3.5s)  [LR ceiling this seed: 0.837]
+seed=17 variant=SCAFDS-NoEdge                          AUPRC=0.9491 AUROC=0.9859  (3.3s)  [LR ceiling this seed: 0.837]
+seed=17 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9783 AUROC=0.9945  (3.5s)  [LR ceiling this seed: 0.837]
+Building graph + PageRank for seed 18...
+seed=18 variant=SCAFDS-SAR                             AUPRC=0.9410 AUROC=0.9864  (3.1s)  [LR ceiling this seed: 0.783]
+seed=18 variant=SCAFDS-Geographic                      AUPRC=0.9355 AUROC=0.9849  (3.1s)  [LR ceiling this seed: 0.783]
+seed=18 variant=SCAFDS-AssetSim                        AUPRC=0.9409 AUROC=0.9864  (3.1s)  [LR ceiling this seed: 0.783]
+seed=18 variant=SCAFDS-NoEdge                          AUPRC=0.9280 AUROC=0.9823  (2.8s)  [LR ceiling this seed: 0.783]
+seed=18 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9849 AUROC=0.9972  (2.5s)  [LR ceiling this seed: 0.783]
+Building graph + PageRank for seed 19...
+seed=19 variant=SCAFDS-SAR                             AUPRC=0.9669 AUROC=0.9917  (2.6s)  [LR ceiling this seed: 0.877]
+seed=19 variant=SCAFDS-Geographic                      AUPRC=0.9582 AUROC=0.9890  (2.6s)  [LR ceiling this seed: 0.877]
+seed=19 variant=SCAFDS-AssetSim                        AUPRC=0.9596 AUROC=0.9894  (2.6s)  [LR ceiling this seed: 0.877]
+seed=19 variant=SCAFDS-NoEdge                          AUPRC=0.9680 AUROC=0.9919  (2.3s)  [LR ceiling this seed: 0.877]
+seed=19 variant=NodeOnly-ExactLabelVars (sanity check) AUPRC=0.9644 AUROC=0.9911  (2.3s)  [LR ceiling this seed: 0.877]
+
+Wrote ../results/fixed_20seed.csv
+
+Logistic-regression ceiling across seeds: AUPRC=0.833+/-0.033  AUROC=0.943+/-0.015
+
+--- Summary (mean +/- std over seeds) ---
+SCAFDS-SAR                             AUPRC=0.949+/-0.016  AUROC=0.988+/-0.004
+SCAFDS-Geographic                      AUPRC=0.948+/-0.016  AUROC=0.987+/-0.004
+SCAFDS-AssetSim                        AUPRC=0.948+/-0.016  AUROC=0.987+/-0.004
+SCAFDS-NoEdge                          AUPRC=0.941+/-0.022  AUROC=0.985+/-0.006
+NodeOnly-ExactLabelVars (sanity check) AUPRC=0.973+/-0.009  AUROC=0.994+/-0.002
+
+--- Sanity check ---
+NodeOnly-ExactLabelVars (0.973) is close to the logistic-regression ceiling (0.833) -- the architecture fix is working as validated.
+
+--- Paired differences (SAR vs. others, AUPRC, t-based 95% CI) ---
+SAR minus SCAFDS-Geographic: mean=+0.0006, 95% CI=[-0.0012, +0.0025] -- not significant
+SAR minus SCAFDS-AssetSim: mean=+0.0009, 95% CI=[-0.0016, +0.0034] -- not significant
+SAR minus SCAFDS-NoEdge: mean=+0.0075, 95% CI=[-0.0005, +0.0155] -- not significant

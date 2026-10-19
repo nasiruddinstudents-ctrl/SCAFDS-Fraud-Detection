@@ -1,0 +1,19 @@
+{
+  "title": "SCAFDS: code and synthetic data for an explainable graph intelligence framework for interbank fraud surveillance",
+  "upload_type": "software",
+  "version": "v1.0.0",
+  "license": "MIT",
+  "description": "Code, synthetic interbank graph, simulated diagnostic-graph generator and per-seed results supporting the F1000Research article 'An Explainable Graph Intelligence Framework for Human-Centric Interbank Fraud Surveillance and Attribution-Grounded Regulatory Narrative Generation'. Data and results files are additionally released under CC BY 4.0.",
+  "creators": [
+    {"name": "Uddin, Mohammad Nasir", "affiliation": "Westcliff University", "orcid": "0009-0009-0990-4616"},
+    {"name": "Anik, Asaduzzaman", "affiliation": "Northern University Bangladesh"},
+    {"name": "Orpita, Rahnuma Tabassum", "affiliation": "Stanton University"},
+    {"name": "Bhuiyan, Eklachur Rahman", "affiliation": "Washington University of Science and Technology"},
+    {"name": "Risalat, Marjahan", "affiliation": "Stanton University"},
+    {"name": "Wali Ullah, SM", "affiliation": "Stanton University"}
+  ],
+  "keywords": ["graph neural networks", "anti-money laundering", "interbank fraud detection", "explainable AI", "orthogonal-edge ablation"],
+  "related_identifiers": [
+    {"identifier": "arXiv:2605.18913", "relation": "isSupplementTo", "scheme": "arxiv"}
+  ]
+}

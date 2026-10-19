@@ -1,0 +1,4 @@
+TRIVIAL BASELINE: rank purely by train-window transaction degree, no ML
+AUPRC: 0.7827036436190384
+AUROC: 0.9946839195261804
+Base rate: 0.02195602231703315

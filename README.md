@@ -1,43 +1,65 @@
 # SCAFDS: Systemic Contagion-Aware Fraud Detection System
 
-[![Status](https://img.shields.io/badge/Status-Under%20Review%20(CAAI%20TIT)-yellow)](https://arxiv.org/abs/2605.18913)
 [![arXiv](https://img.shields.io/badge/arXiv-2605.18913-b31b1b)](https://arxiv.org/abs/2605.18913)
-[![Patent](https://img.shields.io/badge/USPTO-Provisional%2064%2F061%2C083-orange)](https://www.uspto.gov/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI_HERE.svg)](https://doi.org/ZENODO_DOI_HERE)
+[![License: MIT](https://img.shields.io/badge/Code-MIT-green)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
-Code for **SCAFDS**, a fraud detection pipeline combining edge-feature graph attention over interbank networks with attribution-grounded Suspicious Activity Report (SAR) generation.
+Code, synthetic data and per-seed results for:
 
-> **Mohammad Nasir Uddin** (corresponding), Westcliff University<br>
-> Asaduzzaman Anik, Rahnuma Tabassum Orpita, Eklachur Rahman Bhuiyan, Marjahan Risalat, SM Wali Ullah<br>
-> *Under review at CAAI Transactions on Intelligence Technology, 2026*
+> Uddin MN, Anik A, Orpita RT, Bhuiyan ER, Risalat M, Wali Ullah SM.
+> **An Explainable Graph Intelligence Framework for Human-Centric Interbank Fraud Surveillance and Attribution-Grounded Regulatory Narrative Generation.**
+> Submitted to *F1000Research*, 2026.
 
-## Status of this repository
-This repository currently contains the **original (v2) training code** (`scafds_train_final.py`, `patch_v2.py`) and the synthetic FDIC interbank network (`fdic_interbank_v2.zip`) used in the first version of the paper (arXiv:2605.18913).
+## Status and relation to earlier versions
+- **arXiv:2605.18913 (v1, May 2026)** is an earlier, single-author version. It reported the synthetic Track B gain as support for the fraud-specific edge feature.
+- The **F1000Research article** adds identifiability diagnostics (orthogonal-edge controls, a sanity-check baseline, a corrected architecture and a 20-seed paired re-run) and a bank-level evaluation on IBM AMLWorld with a trivial exposure baseline. It finds **no demonstrated fraud-specific advantage** from the edge feature and supersedes the preprint's conclusion. The preprint's FDIC enforcement-action check is **withdrawn**: the synthetic graph's nodes do not correspond to real institutions, so real labels cannot be matched to them.
 
-The revised manuscript under review adds a leakage-resistant evaluation on the IBM AMLWorld dataset (temporal and entity-disjoint splits) and a matched edge-feature ablation. That evaluation found **no demonstrated fraud-specific advantage from edge features**; results reported in earlier versions should be read in light of the revised paper. Code for the revised evaluation will be added here.
+## Repository contents (mapped to the article)
+
+| Path | What it is | Article |
+|---|---|---|
+| `scafds_train_v3.py` | Track A (IEEE-CIS) and Track B (synthetic graph) training, baselines and ablations | Tables 3, 4 |
+| `scafds_train_final.py`, `patch_v2.py` | Earlier version of the training pipeline (arXiv v1); not used for the article's tables | – |
+| `fdic_interbank_v2.zip` | Synthetic institution-level interbank graph (seed 42) | Table 2 |
+| `diagnostics/orthogonal_ablation.py` | Single-layer orthogonal-edge probe (10 seeds) | Results text |
+| `diagnostics/orthogonal_ablation_matched.py` | Matched NoTemporal control and sanity-check baseline, before the fix | Results text |
+| `diagnostics/orthogonal_ablation_fixed.py` | Residual skip-connection fix; 20-seed comparison and 8-seed check | Tables 5, 6 |
+| `amlworld/amlworld_audit.py` | AMLWorld HI-Small audit | Methods |
+| `amlworld/trivial_baseline_check.py` | Exposure-confound check (degree ranking under the "touches laundering" label) | Methods |
+| `amlworld/aml_graph_train_v2.py` | Bank-level evaluation: TrivialDegree, NodeOnly, OrdinaryEdge, SCAFDS-style | Table 7 |
+| `results/track_ab/` | Per-seed results and run log for Tracks A and B (CPU run) | Tables 3, 4 |
+| `results/checkpoints/` | SCAFDS model checkpoints, 10 seeds (if present) | Tables 3, 4 |
+| `results/diagnostics/` | Per-seed CSVs and logs: probe, matched pre-fix control, fixed 20-seed comparison, 8-seed/120-epoch check | Results text, Tables 5, 6 |
+| `results/amlworld/` | Audit, post-September-10 artifact check (`amlworld_tail_check.log`), exposure-confound check and 5-seed bank-level run logs | Methods, Table 7 |
+| `results/gpu_info.txt`, `results/environment_gpu.txt` | GPU and package versions for the diagnostics and AMLWorld rerun (NVIDIA RTX 6000D, PyTorch 2.14.1, PyG 2.8.1) | – |
 
 ## Data
-- **IEEE-CIS Fraud Detection** — available from [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection) under its own terms (not redistributed).
-- **Synthetic FDIC interbank network** (`fdic_interbank_v2.zip`) — synthetic network calibrated to FDIC institution characteristics; labels are rule-based, not observed fraud outcomes.
-- **IBM AMLWorld** (revised evaluation) — available from its original source.
+- **IEEE-CIS Fraud Detection**: [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection). Not redistributed (competition rules).
+- **IBM AMLWorld, HI-Small**: [Kaggle](https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml). Not redistributed.
+- **Synthetic interbank graph** (`fdic_interbank_v2.zip`): generated by the authors. Node features are drawn from parametric distributions modelled on FDIC/FinCEN statistics; labels are a rule-based synthetic proxy, **not** observed fraud.
+
+## Reproducing
+```bash
+pip install -r requirements.txt
+unzip fdic_interbank_v2.zip
+python scafds_train_v3.py --help
+python diagnostics/orthogonal_ablation_fixed.py --seeds 20 --epochs 300 --out fixed_20seed.csv
+python amlworld/aml_graph_train_v2.py --trans HI-Small_Trans.csv --seeds 5 --epochs 300
+```
+`amlworld/trivial_baseline_check.py` reads the data from `/workspace/HI-Small_Trans.csv`; edit that path for your machine.
+
+**Note on SAR metrics.** `scafds_train_v3.py` contains a block that prints "Forensic SAR auditability" values, including a "factual accuracy" computed as a fixed multiple (0.962) of the grounding rate. This is a placeholder with no empirical basis. It is **not** reported in the article, which states that no SAR narratives were generated or evaluated. The optional LLM comparison path in `scafds_train_final.py` (needs `ANTHROPIC_API_KEY`) is likewise not used for any result.
+
+## Licenses
+- **Code**: MIT (see `LICENSE`).
+- **Data and results** (`fdic_interbank_v2.zip`, `results/`): CC BY 4.0.
 
 ## Patent
-USPTO Provisional Patent Application No. 64/061,083 (filed May 8, 2026).
+The system design is the subject of U.S. provisional patent application No. 64/061,083 (filed 8 May 2026).
 
 ## Citation
-```bibtex
-@misc{uddin2026scafds,
-  title         = {SCAFDS: Edge-Feature Graph Attention for Interbank Fraud Detection with Attribution-Grounded SAR Generation},
-  author        = {Uddin, Mohammad Nasir and Anik, Asaduzzaman and Orpita, Rahnuma Tabassum and Bhuiyan, Eklachur Rahman and Risalat, Marjahan and Ullah, SM Wali},
-  year          = {2026},
-  eprint        = {2605.18913},
-  archivePrefix = {arXiv},
-  note          = {Under review at CAAI Transactions on Intelligence Technology}
-}
-```
-
-## License
-MIT — see [LICENSE](LICENSE).
+See `CITATION.cff`, or cite the archived release: https://doi.org/ZENODO_DOI_HERE
 
 ## Contact
-Mohammad Nasir Uddin · Westcliff University · ORCID [0009-0009-0990-4616](https://orcid.org/0009-0009-0990-4616)
+Mohammad Nasir Uddin · Westcliff University · m.uddin.258@westcliff.edu · ORCID [0009-0009-0990-4616](https://orcid.org/0009-0009-0990-4616)

@@ -1,0 +1,830 @@
+/usr/local/lib/python3.12/dist-packages/torch/__config__.py:9: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12080). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._show_config()
+[SCAFDS v3] Device: cpu
+[SCAFDS v3] seeds=10, epochs_gnn=200, epochs_scafds=300
+
+============================================================
+SCAFDS EXPERIMENTAL PIPELINE v3
+Two-track evaluation: Track A (transaction) + Track B (institution)
+============================================================
+[DATA] Loading IEEE-CIS...
+[DATA] Transactions: 590,540  fraud rate: 0.0350
+[DATA] Track A feature matrix: (590540, 432)
+[DATA] Loading FDIC interbank graph...
+[DATA] Track B: 8,103 institutions, 169,800 edges, fraud rate: 0.150
+[DATA] Node features normalized: mean~0, std~1
+[DATA] Building sequences (seq_len=32)...
+[DATA] Sequences: (36000, 32, 432)  fraud rate: 0.0347
+
+============================================================
+SEED 1/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5720  AUROC=0.8985  F1=0.5629
+    XGB    AUPRC=0.6557  AUROC=0.9306  F1=0.6284
+    LGB    AUPRC=0.7773  AUROC=0.9619  F1=0.7342
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.4032
+    ep=20  AUPRC=0.4486
+    ep=30  AUPRC=0.4347
+    ep=40  AUPRC=0.4376
+    BiLSTM  AUPRC=0.4376  AUROC=0.8387
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4881  AUPRC=0.2445
+    ep=100  loss=0.4857  AUPRC=0.2457
+    ep=150  loss=0.4833  AUPRC=0.2473
+    ep=200  loss=0.4810  AUPRC=0.2477
+    GCN             AUPRC=0.2477  AUROC=0.5711  F1=0.2788
+    ep= 50  loss=0.4908  AUPRC=0.2641
+    ep=100  loss=0.4920  AUPRC=0.2681
+    ep=150  loss=0.4924  AUPRC=0.2709
+    ep=200  loss=0.4932  AUPRC=0.2747
+    GAT             AUPRC=0.2747  AUROC=0.5955  F1=0.2876
+    ep= 50  loss=0.4629  AUPRC=0.3839
+    ep=100  loss=0.4557  AUPRC=0.3898
+    ep=150  loss=0.4536  AUPRC=0.3892
+    ep=200  loss=0.4550  AUPRC=0.3888
+    SAGE            AUPRC=0.3898  AUROC=0.6685  F1=0.3812
+    ep= 50  loss=0.4642  AUPRC=0.3268
+    ep=100  loss=0.4256  AUPRC=0.3018
+    ep=150  loss=0.3758  AUPRC=0.2658
+    ep=200  loss=0.3698  AUPRC=0.2652
+    TemporalGAT     AUPRC=0.3268  AUROC=0.6360  F1=0.3504
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4310  AUPRC=0.3430
+    ep=100  loss=0.2929  AUPRC=0.5408
+    ep=150  loss=0.2466  AUPRC=0.5127
+    ep=200  loss=0.2109  AUPRC=0.5101
+    ep=250  loss=0.1933  AUPRC=0.4964
+    ep=300  loss=0.1959  AUPRC=0.5006
+    ep= 50  loss=0.4731  AUPRC=0.2634
+    ep=100  loss=0.4271  AUPRC=0.2346
+    ep=150  loss=0.3438  AUPRC=0.2042
+    ep=200  loss=0.2972  AUPRC=0.2105
+    ep=250  loss=0.2711  AUPRC=0.1982
+    ep=300  loss=0.2703  AUPRC=0.1974
+    ep= 50  loss=0.4598  AUPRC=0.3370
+    ep=100  loss=0.3504  AUPRC=0.5774
+    ep=150  loss=0.3219  AUPRC=0.6052
+    ep=200  loss=0.3103  AUPRC=0.6131
+    ep=250  loss=0.3053  AUPRC=0.6153
+    ep=300  loss=0.3063  AUPRC=0.6167
+    ep= 50  loss=0.4698  AUPRC=0.2735
+    ep=100  loss=0.3816  AUPRC=0.3454
+    ep=150  loss=0.2797  AUPRC=0.4387
+    ep=200  loss=0.2229  AUPRC=0.4749
+    ep=250  loss=0.1989  AUPRC=0.4691
+    ep=300  loss=0.1948  AUPRC=0.4725
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5408  AUROC=0.7983
+    NoEdge          AUPRC=0.2634  AUROC=0.5822
+    NoTemporal      AUPRC=0.6167  AUROC=0.8475
+    NoFusion        AUPRC=0.4749  AUROC=0.7548
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0032
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 2/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5550  AUROC=0.8981  F1=0.5428
+    XGB    AUPRC=0.6440  AUROC=0.9320  F1=0.6089
+    LGB    AUPRC=0.7684  AUROC=0.9628  F1=0.7204
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.4571
+    ep=20  AUPRC=0.4176
+    ep=30  AUPRC=0.4237
+    ep=40  AUPRC=0.4241
+    BiLSTM  AUPRC=0.4241  AUROC=0.8212
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4838  AUPRC=0.2423
+    ep=100  loss=0.4801  AUPRC=0.2396
+    ep=150  loss=0.4784  AUPRC=0.2414
+    ep=200  loss=0.4776  AUPRC=0.2416
+    GCN             AUPRC=0.2423  AUROC=0.5836  F1=0.2741
+    ep= 50  loss=0.4926  AUPRC=0.2549
+    ep=100  loss=0.4907  AUPRC=0.2645
+    ep=150  loss=0.4892  AUPRC=0.2642
+    ep=200  loss=0.4850  AUPRC=0.2676
+    GAT             AUPRC=0.2676  AUROC=0.6045  F1=0.2816
+    ep= 50  loss=0.4567  AUPRC=0.3659
+    ep=100  loss=0.4445  AUPRC=0.3652
+    ep=150  loss=0.4462  AUPRC=0.3631
+    ep=200  loss=0.4465  AUPRC=0.3628
+    SAGE            AUPRC=0.3659  AUROC=0.6656  F1=0.3820
+    ep= 50  loss=0.4634  AUPRC=0.2940
+    ep=100  loss=0.4306  AUPRC=0.2751
+    ep=150  loss=0.3884  AUPRC=0.2308
+    ep=200  loss=0.3722  AUPRC=0.2268
+    TemporalGAT     AUPRC=0.2940  AUROC=0.6312  F1=0.3284
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4449  AUPRC=0.3157
+    ep=100  loss=0.3308  AUPRC=0.5021
+    ep=150  loss=0.2798  AUPRC=0.5093
+    ep=200  loss=0.2497  AUPRC=0.5090
+    ep=250  loss=0.2303  AUPRC=0.4866
+    ep=300  loss=0.2263  AUPRC=0.4880
+    ep= 50  loss=0.4757  AUPRC=0.2614
+    ep=100  loss=0.4347  AUPRC=0.2316
+    ep=150  loss=0.3690  AUPRC=0.1991
+    ep=200  loss=0.3164  AUPRC=0.1900
+    ep=250  loss=0.2841  AUPRC=0.1867
+    ep=300  loss=0.2765  AUPRC=0.1865
+    ep= 50  loss=0.4649  AUPRC=0.3036
+    ep=100  loss=0.4019  AUPRC=0.4232
+    ep=150  loss=0.3418  AUPRC=0.5536
+    ep=200  loss=0.3225  AUPRC=0.5738
+    ep=250  loss=0.3175  AUPRC=0.5751
+    ep=300  loss=0.3139  AUPRC=0.5752
+    ep= 50  loss=0.4488  AUPRC=0.3093
+    ep=100  loss=0.3458  AUPRC=0.4356
+    ep=150  loss=0.2626  AUPRC=0.5047
+    ep=200  loss=0.2201  AUPRC=0.4839
+    ep=250  loss=0.2086  AUPRC=0.4816
+    ep=300  loss=0.2008  AUPRC=0.4786
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5093  AUROC=0.8052
+    NoEdge          AUPRC=0.2614  AUROC=0.6030
+    NoTemporal      AUPRC=0.5752  AUROC=0.8469
+    NoFusion        AUPRC=0.5047  AUROC=0.7995
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0033
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 3/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5649  AUROC=0.8995  F1=0.5552
+    XGB    AUPRC=0.6519  AUROC=0.9342  F1=0.6172
+    LGB    AUPRC=0.7748  AUROC=0.9637  F1=0.7272
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3459
+    ep=20  AUPRC=0.3682
+    ep=30  AUPRC=0.3628
+    ep=40  AUPRC=0.3720
+    BiLSTM  AUPRC=0.3720  AUROC=0.8154
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4884  AUPRC=0.2412
+    ep=100  loss=0.4838  AUPRC=0.2420
+    ep=150  loss=0.4820  AUPRC=0.2418
+    ep=200  loss=0.4807  AUPRC=0.2411
+    GCN             AUPRC=0.2420  AUROC=0.5639  F1=0.2685
+    ep= 50  loss=0.4959  AUPRC=0.2694
+    ep=100  loss=0.4920  AUPRC=0.2683
+    ep=150  loss=0.4923  AUPRC=0.2679
+    ep=200  loss=0.4915  AUPRC=0.2706
+    GAT             AUPRC=0.2706  AUROC=0.5864  F1=0.2809
+    ep= 50  loss=0.4634  AUPRC=0.3423
+    ep=100  loss=0.4537  AUPRC=0.3521
+    ep=150  loss=0.4545  AUPRC=0.3522
+    ep=200  loss=0.4516  AUPRC=0.3522
+    SAGE            AUPRC=0.3522  AUROC=0.6596  F1=0.3411
+    ep= 50  loss=0.4565  AUPRC=0.3129
+    ep=100  loss=0.4118  AUPRC=0.2546
+    ep=150  loss=0.3614  AUPRC=0.2240
+    ep=200  loss=0.3461  AUPRC=0.2246
+    TemporalGAT     AUPRC=0.3129  AUROC=0.6365  F1=0.3263
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4568  AUPRC=0.2908
+    ep=100  loss=0.3407  AUPRC=0.4705
+    ep=150  loss=0.2545  AUPRC=0.4847
+    ep=200  loss=0.2139  AUPRC=0.4959
+    ep=250  loss=0.2054  AUPRC=0.4882
+    ep=300  loss=0.2019  AUPRC=0.4794
+    ep= 50  loss=0.4705  AUPRC=0.2497
+    ep=100  loss=0.4335  AUPRC=0.2091
+    ep=150  loss=0.3628  AUPRC=0.1722
+    ep=200  loss=0.2924  AUPRC=0.1754
+    ep=250  loss=0.2579  AUPRC=0.1745
+    ep=300  loss=0.2524  AUPRC=0.1753
+    ep= 50  loss=0.4587  AUPRC=0.3253
+    ep=100  loss=0.3859  AUPRC=0.5095
+    ep=150  loss=0.3317  AUPRC=0.5893
+    ep=200  loss=0.3195  AUPRC=0.6004
+    ep=250  loss=0.3040  AUPRC=0.6001
+    ep=300  loss=0.3124  AUPRC=0.6037
+    ep= 50  loss=0.4518  AUPRC=0.3185
+    ep=100  loss=0.3573  AUPRC=0.4261
+    ep=150  loss=0.2752  AUPRC=0.5238
+    ep=200  loss=0.2300  AUPRC=0.5069
+    ep=250  loss=0.2061  AUPRC=0.5143
+    ep=300  loss=0.2058  AUPRC=0.5142
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.4959  AUROC=0.7912
+    NoEdge          AUPRC=0.2497  AUROC=0.5797
+    NoTemporal      AUPRC=0.6037  AUROC=0.8446
+    NoFusion        AUPRC=0.5238  AUROC=0.8051
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0031
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 4/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5540  AUROC=0.8946  F1=0.5439
+    XGB    AUPRC=0.6481  AUROC=0.9300  F1=0.6173
+    LGB    AUPRC=0.7686  AUROC=0.9600  F1=0.7258
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3725
+    ep=20  AUPRC=0.3777
+    ep=30  AUPRC=0.3796
+    ep=40  AUPRC=0.3908
+    BiLSTM  AUPRC=0.3908  AUROC=0.8363
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4865  AUPRC=0.2357
+    ep=100  loss=0.4816  AUPRC=0.2326
+    ep=150  loss=0.4812  AUPRC=0.2327
+    ep=200  loss=0.4836  AUPRC=0.2323
+    GCN             AUPRC=0.2357  AUROC=0.5647  F1=0.2782
+    ep= 50  loss=0.4938  AUPRC=0.2599
+    ep=100  loss=0.4884  AUPRC=0.2566
+    ep=150  loss=0.4883  AUPRC=0.2598
+    ep=200  loss=0.4853  AUPRC=0.2599
+    GAT             AUPRC=0.2599  AUROC=0.5738  F1=0.2833
+    ep= 50  loss=0.4564  AUPRC=0.3585
+    ep=100  loss=0.4480  AUPRC=0.3610
+    ep=150  loss=0.4457  AUPRC=0.3613
+    ep=200  loss=0.4471  AUPRC=0.3613
+    SAGE            AUPRC=0.3613  AUROC=0.6522  F1=0.3435
+    ep= 50  loss=0.4563  AUPRC=0.2999
+    ep=100  loss=0.4141  AUPRC=0.2738
+    ep=150  loss=0.3704  AUPRC=0.2396
+    ep=200  loss=0.3601  AUPRC=0.2357
+    TemporalGAT     AUPRC=0.2999  AUROC=0.6241  F1=0.3221
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4416  AUPRC=0.3211
+    ep=100  loss=0.3091  AUPRC=0.5617
+    ep=150  loss=0.2441  AUPRC=0.5310
+    ep=200  loss=0.2242  AUPRC=0.5191
+    ep=250  loss=0.2017  AUPRC=0.5010
+    ep=300  loss=0.1980  AUPRC=0.5057
+    ep= 50  loss=0.4745  AUPRC=0.2532
+    ep=100  loss=0.4343  AUPRC=0.2231
+    ep=150  loss=0.3669  AUPRC=0.1904
+    ep=200  loss=0.3143  AUPRC=0.1829
+    ep=250  loss=0.2774  AUPRC=0.1792
+    ep=300  loss=0.2651  AUPRC=0.1784
+    ep= 50  loss=0.4621  AUPRC=0.2893
+    ep=100  loss=0.3788  AUPRC=0.4796
+    ep=150  loss=0.3254  AUPRC=0.5902
+    ep=200  loss=0.3040  AUPRC=0.5999
+    ep=250  loss=0.3015  AUPRC=0.6002
+    ep=300  loss=0.3039  AUPRC=0.5998
+    ep= 50  loss=0.4532  AUPRC=0.2814
+    ep=100  loss=0.3651  AUPRC=0.3829
+    ep=150  loss=0.2742  AUPRC=0.4160
+    ep=200  loss=0.2256  AUPRC=0.4276
+    ep=250  loss=0.2007  AUPRC=0.4306
+    ep=300  loss=0.2004  AUPRC=0.4327
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5617  AUROC=0.8107
+    NoEdge          AUPRC=0.2532  AUROC=0.5738
+    NoTemporal      AUPRC=0.6002  AUROC=0.8419
+    NoFusion        AUPRC=0.4327  AUROC=0.7732
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0033
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 5/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5664  AUROC=0.8985  F1=0.5520
+    XGB    AUPRC=0.6505  AUROC=0.9327  F1=0.6213
+    LGB    AUPRC=0.7696  AUROC=0.9608  F1=0.7268
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3145
+    ep=20  AUPRC=0.3094
+    ep=30  AUPRC=0.3249
+    ep=40  AUPRC=0.3251
+    BiLSTM  AUPRC=0.3251  AUROC=0.7645
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4866  AUPRC=0.2518
+    ep=100  loss=0.4827  AUPRC=0.2506
+    ep=150  loss=0.4821  AUPRC=0.2503
+    ep=200  loss=0.4819  AUPRC=0.2505
+    GCN             AUPRC=0.2518  AUROC=0.5935  F1=0.2749
+    ep= 50  loss=0.4924  AUPRC=0.2788
+    ep=100  loss=0.4879  AUPRC=0.2749
+    ep=150  loss=0.4861  AUPRC=0.2765
+    ep=200  loss=0.4867  AUPRC=0.2755
+    GAT             AUPRC=0.2788  AUROC=0.6126  F1=0.2833
+    ep= 50  loss=0.4614  AUPRC=0.3629
+    ep=100  loss=0.4526  AUPRC=0.3706
+    ep=150  loss=0.4489  AUPRC=0.3711
+    ep=200  loss=0.4503  AUPRC=0.3707
+    SAGE            AUPRC=0.3711  AUROC=0.6745  F1=0.3666
+    ep= 50  loss=0.4599  AUPRC=0.3032
+    ep=100  loss=0.4268  AUPRC=0.2602
+    ep=150  loss=0.3884  AUPRC=0.2374
+    ep=200  loss=0.3764  AUPRC=0.2298
+    TemporalGAT     AUPRC=0.3032  AUROC=0.6443  F1=0.3314
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4537  AUPRC=0.2836
+    ep=100  loss=0.3423  AUPRC=0.4044
+    ep=150  loss=0.2745  AUPRC=0.4677
+    ep=200  loss=0.2298  AUPRC=0.4765
+    ep=250  loss=0.2163  AUPRC=0.4693
+    ep=300  loss=0.2249  AUPRC=0.4729
+    ep= 50  loss=0.4633  AUPRC=0.2238
+    ep=100  loss=0.4155  AUPRC=0.1873
+    ep=150  loss=0.3470  AUPRC=0.1656
+    ep=200  loss=0.2908  AUPRC=0.1608
+    ep=250  loss=0.2655  AUPRC=0.1585
+    ep=300  loss=0.2654  AUPRC=0.1580
+    ep= 50  loss=0.4624  AUPRC=0.2820
+    ep=100  loss=0.4059  AUPRC=0.4192
+    ep=150  loss=0.3401  AUPRC=0.5412
+    ep=200  loss=0.3152  AUPRC=0.5961
+    ep=250  loss=0.3128  AUPRC=0.5967
+    ep=300  loss=0.3071  AUPRC=0.5940
+    ep= 50  loss=0.4448  AUPRC=0.2853
+    ep=100  loss=0.3200  AUPRC=0.4754
+    ep=150  loss=0.2578  AUPRC=0.5414
+    ep=200  loss=0.2279  AUPRC=0.5359
+    ep=250  loss=0.1978  AUPRC=0.5299
+    ep=300  loss=0.1961  AUPRC=0.5314
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.4765  AUROC=0.7854
+    NoEdge          AUPRC=0.2238  AUROC=0.5870
+    NoTemporal      AUPRC=0.5967  AUROC=0.8351
+    NoFusion        AUPRC=0.5414  AUROC=0.8044
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0032
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 6/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5541  AUROC=0.8953  F1=0.5443
+    XGB    AUPRC=0.6484  AUROC=0.9295  F1=0.6134
+    LGB    AUPRC=0.7653  AUROC=0.9585  F1=0.7215
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.4027
+    ep=20  AUPRC=0.3451
+    ep=30  AUPRC=0.3758
+    ep=40  AUPRC=0.3784
+    BiLSTM  AUPRC=0.3784  AUROC=0.8247
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4808  AUPRC=0.2261
+    ep=100  loss=0.4785  AUPRC=0.2207
+    ep=150  loss=0.4780  AUPRC=0.2198
+    ep=200  loss=0.4782  AUPRC=0.2198
+    GCN             AUPRC=0.2261  AUROC=0.5701  F1=0.2608
+    ep= 50  loss=0.4889  AUPRC=0.2380
+    ep=100  loss=0.4798  AUPRC=0.2319
+    ep=150  loss=0.4830  AUPRC=0.2328
+    ep=200  loss=0.4803  AUPRC=0.2321
+    GAT             AUPRC=0.2380  AUROC=0.5801  F1=0.2650
+    ep= 50  loss=0.4486  AUPRC=0.3142
+    ep=100  loss=0.4414  AUPRC=0.3166
+    ep=150  loss=0.4393  AUPRC=0.3155
+    ep=200  loss=0.4376  AUPRC=0.3148
+    SAGE            AUPRC=0.3166  AUROC=0.6536  F1=0.3317
+    ep= 50  loss=0.4539  AUPRC=0.2642
+    ep=100  loss=0.4242  AUPRC=0.2525
+    ep=150  loss=0.3894  AUPRC=0.2301
+    ep=200  loss=0.3791  AUPRC=0.2287
+    TemporalGAT     AUPRC=0.2642  AUROC=0.6252  F1=0.2919
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4427  AUPRC=0.2746
+    ep=100  loss=0.3066  AUPRC=0.4640
+    ep=150  loss=0.2608  AUPRC=0.5004
+    ep=200  loss=0.2425  AUPRC=0.4885
+    ep=250  loss=0.2246  AUPRC=0.4940
+    ep=300  loss=0.2141  AUPRC=0.4917
+    ep= 50  loss=0.4606  AUPRC=0.2387
+    ep=100  loss=0.4173  AUPRC=0.1920
+    ep=150  loss=0.3530  AUPRC=0.1950
+    ep=200  loss=0.3053  AUPRC=0.1815
+    ep=250  loss=0.2767  AUPRC=0.1749
+    ep=300  loss=0.2707  AUPRC=0.1745
+    ep= 50  loss=0.4612  AUPRC=0.2625
+    ep=100  loss=0.3824  AUPRC=0.4375
+    ep=150  loss=0.3302  AUPRC=0.5241
+    ep=200  loss=0.3125  AUPRC=0.5470
+    ep=250  loss=0.3124  AUPRC=0.5678
+    ep=300  loss=0.3069  AUPRC=0.5703
+    ep= 50  loss=0.4387  AUPRC=0.2646
+    ep=100  loss=0.3168  AUPRC=0.4423
+    ep=150  loss=0.2550  AUPRC=0.4687
+    ep=200  loss=0.2182  AUPRC=0.4859
+    ep=250  loss=0.1991  AUPRC=0.4796
+    ep=300  loss=0.1988  AUPRC=0.4776
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5004  AUROC=0.7964
+    NoEdge          AUPRC=0.2387  AUROC=0.5786
+    NoTemporal      AUPRC=0.5703  AUROC=0.8300
+    NoFusion        AUPRC=0.4859  AUROC=0.7971
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0033
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 7/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5464  AUROC=0.8966  F1=0.5370
+    XGB    AUPRC=0.6423  AUROC=0.9325  F1=0.6029
+    LGB    AUPRC=0.7637  AUROC=0.9635  F1=0.7140
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3784
+    ep=20  AUPRC=0.4157
+    ep=30  AUPRC=0.3802
+    ep=40  AUPRC=0.3914
+    BiLSTM  AUPRC=0.3914  AUROC=0.7995
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4798  AUPRC=0.2396
+    ep=100  loss=0.4759  AUPRC=0.2441
+    ep=150  loss=0.4748  AUPRC=0.2427
+    ep=200  loss=0.4743  AUPRC=0.2429
+    GCN             AUPRC=0.2441  AUROC=0.5781  F1=0.2586
+    ep= 50  loss=0.4873  AUPRC=0.2394
+    ep=100  loss=0.4875  AUPRC=0.2498
+    ep=150  loss=0.4822  AUPRC=0.2355
+    ep=200  loss=0.4836  AUPRC=0.2453
+    GAT             AUPRC=0.2498  AUROC=0.5973  F1=0.2680
+    ep= 50  loss=0.4549  AUPRC=0.3606
+    ep=100  loss=0.4468  AUPRC=0.3588
+    ep=150  loss=0.4415  AUPRC=0.3579
+    ep=200  loss=0.4408  AUPRC=0.3582
+    SAGE            AUPRC=0.3606  AUROC=0.6699  F1=0.3699
+    ep= 50  loss=0.4572  AUPRC=0.2923
+    ep=100  loss=0.4277  AUPRC=0.2809
+    ep=150  loss=0.4030  AUPRC=0.2423
+    ep=200  loss=0.3931  AUPRC=0.2353
+    TemporalGAT     AUPRC=0.2923  AUROC=0.6413  F1=0.3155
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4589  AUPRC=0.2999
+    ep=100  loss=0.3579  AUPRC=0.4336
+    ep=150  loss=0.3002  AUPRC=0.4537
+    ep=200  loss=0.2713  AUPRC=0.4612
+    ep=250  loss=0.2535  AUPRC=0.4631
+    ep=300  loss=0.2450  AUPRC=0.4629
+    ep= 50  loss=0.4648  AUPRC=0.2536
+    ep=100  loss=0.4206  AUPRC=0.2247
+    ep=150  loss=0.3645  AUPRC=0.1889
+    ep=200  loss=0.3183  AUPRC=0.1770
+    ep=250  loss=0.2971  AUPRC=0.1717
+    ep=300  loss=0.2922  AUPRC=0.1712
+    ep= 50  loss=0.4656  AUPRC=0.2866
+    ep=100  loss=0.4388  AUPRC=0.3468
+    ep=150  loss=0.3716  AUPRC=0.5172
+    ep=200  loss=0.3369  AUPRC=0.5792
+    ep=250  loss=0.3296  AUPRC=0.5933
+    ep=300  loss=0.3285  AUPRC=0.5944
+    ep= 50  loss=0.4527  AUPRC=0.2876
+    ep=100  loss=0.3813  AUPRC=0.3753
+    ep=150  loss=0.2782  AUPRC=0.5295
+    ep=200  loss=0.2424  AUPRC=0.5240
+    ep=250  loss=0.2259  AUPRC=0.5053
+    ep=300  loss=0.2211  AUPRC=0.5069
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.4631  AUROC=0.7825
+    NoEdge          AUPRC=0.2536  AUROC=0.6009
+    NoTemporal      AUPRC=0.5944  AUROC=0.8388
+    NoFusion        AUPRC=0.5295  AUROC=0.8052
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0031
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 8/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5651  AUROC=0.8974  F1=0.5522
+    XGB    AUPRC=0.6530  AUROC=0.9321  F1=0.6103
+    LGB    AUPRC=0.7728  AUROC=0.9612  F1=0.7253
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3905
+    ep=20  AUPRC=0.3712
+    ep=30  AUPRC=0.3736
+    ep=40  AUPRC=0.3722
+    BiLSTM  AUPRC=0.3722  AUROC=0.7922
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4773  AUPRC=0.1999
+    ep=100  loss=0.4707  AUPRC=0.2026
+    ep=150  loss=0.4704  AUPRC=0.2004
+    ep=200  loss=0.4702  AUPRC=0.2010
+    GCN             AUPRC=0.2026  AUROC=0.5577  F1=0.2582
+    ep= 50  loss=0.4830  AUPRC=0.2254
+    ep=100  loss=0.4822  AUPRC=0.2244
+    ep=150  loss=0.4794  AUPRC=0.2242
+    ep=200  loss=0.4775  AUPRC=0.2253
+    GAT             AUPRC=0.2254  AUROC=0.5651  F1=0.2518
+    ep= 50  loss=0.4564  AUPRC=0.3113
+    ep=100  loss=0.4475  AUPRC=0.3291
+    ep=150  loss=0.4400  AUPRC=0.3224
+    ep=200  loss=0.4404  AUPRC=0.3226
+    SAGE            AUPRC=0.3291  AUROC=0.6567  F1=0.3227
+    ep= 50  loss=0.4553  AUPRC=0.2705
+    ep=100  loss=0.4303  AUPRC=0.2548
+    ep=150  loss=0.3895  AUPRC=0.2194
+    ep=200  loss=0.3786  AUPRC=0.2193
+    TemporalGAT     AUPRC=0.2705  AUROC=0.6311  F1=0.2968
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4237  AUPRC=0.3002
+    ep=100  loss=0.2985  AUPRC=0.5528
+    ep=150  loss=0.2584  AUPRC=0.5401
+    ep=200  loss=0.2181  AUPRC=0.4869
+    ep=250  loss=0.2068  AUPRC=0.4940
+    ep=300  loss=0.2070  AUPRC=0.4961
+    ep= 50  loss=0.4653  AUPRC=0.2188
+    ep=100  loss=0.4119  AUPRC=0.1778
+    ep=150  loss=0.3446  AUPRC=0.1673
+    ep=200  loss=0.2842  AUPRC=0.1597
+    ep=250  loss=0.2602  AUPRC=0.1596
+    ep=300  loss=0.2522  AUPRC=0.1597
+    ep= 50  loss=0.4567  AUPRC=0.2586
+    ep=100  loss=0.4203  AUPRC=0.3805
+    ep=150  loss=0.3636  AUPRC=0.5239
+    ep=200  loss=0.3339  AUPRC=0.5720
+    ep=250  loss=0.3300  AUPRC=0.5838
+    ep=300  loss=0.3272  AUPRC=0.5857
+    ep= 50  loss=0.4489  AUPRC=0.2650
+    ep=100  loss=0.3724  AUPRC=0.4150
+    ep=150  loss=0.2822  AUPRC=0.5356
+    ep=200  loss=0.2506  AUPRC=0.5404
+    ep=250  loss=0.2410  AUPRC=0.5266
+    ep=300  loss=0.2289  AUPRC=0.5286
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5528  AUROC=0.8180
+    NoEdge          AUPRC=0.2188  AUROC=0.5703
+    NoTemporal      AUPRC=0.5857  AUROC=0.8278
+    NoFusion        AUPRC=0.5404  AUROC=0.8128
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0032
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 9/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5683  AUROC=0.9003  F1=0.5597
+    XGB    AUPRC=0.6631  AUROC=0.9326  F1=0.6262
+    LGB    AUPRC=0.7801  AUROC=0.9623  F1=0.7328
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.4027
+    ep=20  AUPRC=0.4010
+    ep=30  AUPRC=0.4187
+    ep=40  AUPRC=0.4158
+    BiLSTM  AUPRC=0.4158  AUROC=0.8241
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4907  AUPRC=0.2636
+    ep=100  loss=0.4856  AUPRC=0.2643
+    ep=150  loss=0.4834  AUPRC=0.2606
+    ep=200  loss=0.4821  AUPRC=0.2597
+    GCN             AUPRC=0.2643  AUROC=0.5867  F1=0.2788
+    ep= 50  loss=0.4933  AUPRC=0.2748
+    ep=100  loss=0.4875  AUPRC=0.2675
+    ep=150  loss=0.4886  AUPRC=0.2745
+    ep=200  loss=0.4858  AUPRC=0.2737
+    GAT             AUPRC=0.2748  AUROC=0.6059  F1=0.2925
+    ep= 50  loss=0.4606  AUPRC=0.3585
+    ep=100  loss=0.4557  AUPRC=0.3678
+    ep=150  loss=0.4505  AUPRC=0.3677
+    ep=200  loss=0.4500  AUPRC=0.3678
+    SAGE            AUPRC=0.3678  AUROC=0.6763  F1=0.3840
+    ep= 50  loss=0.4657  AUPRC=0.3053
+    ep=100  loss=0.4280  AUPRC=0.2834
+    ep=150  loss=0.3936  AUPRC=0.2487
+    ep=200  loss=0.3792  AUPRC=0.2466
+    TemporalGAT     AUPRC=0.3053  AUROC=0.6481  F1=0.3398
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4576  AUPRC=0.3122
+    ep=100  loss=0.3257  AUPRC=0.5414
+    ep=150  loss=0.2795  AUPRC=0.5429
+    ep=200  loss=0.2368  AUPRC=0.5137
+    ep=250  loss=0.2272  AUPRC=0.5001
+    ep=300  loss=0.2188  AUPRC=0.4942
+    ep= 50  loss=0.4695  AUPRC=0.2716
+    ep=100  loss=0.4183  AUPRC=0.2236
+    ep=150  loss=0.3469  AUPRC=0.2019
+    ep=200  loss=0.2939  AUPRC=0.1847
+    ep=250  loss=0.2667  AUPRC=0.1839
+    ep=300  loss=0.2614  AUPRC=0.1847
+    ep= 50  loss=0.4678  AUPRC=0.3013
+    ep=100  loss=0.4358  AUPRC=0.3899
+    ep=150  loss=0.3750  AUPRC=0.5334
+    ep=200  loss=0.3507  AUPRC=0.5646
+    ep=250  loss=0.3378  AUPRC=0.5795
+    ep=300  loss=0.3391  AUPRC=0.5791
+    ep= 50  loss=0.4472  AUPRC=0.2904
+    ep=100  loss=0.3529  AUPRC=0.3524
+    ep=150  loss=0.2656  AUPRC=0.4167
+    ep=200  loss=0.2153  AUPRC=0.3969
+    ep=250  loss=0.1943  AUPRC=0.3956
+    ep=300  loss=0.1833  AUPRC=0.3959
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5429  AUROC=0.8111
+    NoEdge          AUPRC=0.2716  AUROC=0.6069
+    NoTemporal      AUPRC=0.5795  AUROC=0.8438
+    NoFusion        AUPRC=0.4167  AUROC=0.7487
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0032
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+============================================================
+SEED 10/10
+============================================================
+
+  [Track A — Transaction-level models]
+    RF     AUPRC=0.5635  AUROC=0.9031  F1=0.5524
+    XGB    AUPRC=0.6547  AUROC=0.9364  F1=0.6172
+    LGB    AUPRC=0.7782  AUROC=0.9648  F1=0.7325
+
+  [BiLSTM — Track A]
+    ep=10  AUPRC=0.3383
+    ep=20  AUPRC=0.2927
+    ep=30  AUPRC=0.3151
+    ep=40  AUPRC=0.3089
+    BiLSTM  AUPRC=0.3089  AUROC=0.7564
+
+  [Track B — Institution-level GNN models]
+    ep= 50  loss=0.4862  AUPRC=0.2376
+    ep=100  loss=0.4831  AUPRC=0.2407
+    ep=150  loss=0.4809  AUPRC=0.2422
+    ep=200  loss=0.4820  AUPRC=0.2423
+    GCN             AUPRC=0.2423  AUROC=0.5912  F1=0.2746
+    ep= 50  loss=0.4954  AUPRC=0.2441
+    ep=100  loss=0.4885  AUPRC=0.2569
+    ep=150  loss=0.4877  AUPRC=0.2555
+    ep=200  loss=0.4868  AUPRC=0.2638
+    GAT             AUPRC=0.2638  AUROC=0.6199  F1=0.2944
+    ep= 50  loss=0.4650  AUPRC=0.3398
+    ep=100  loss=0.4527  AUPRC=0.3464
+    ep=150  loss=0.4509  AUPRC=0.3502
+    ep=200  loss=0.4542  AUPRC=0.3500
+    SAGE            AUPRC=0.3502  AUROC=0.6742  F1=0.3734
+    ep= 50  loss=0.4582  AUPRC=0.3094
+    ep=100  loss=0.4161  AUPRC=0.2694
+    ep=150  loss=0.3713  AUPRC=0.2388
+    ep=200  loss=0.3605  AUPRC=0.2347
+    TemporalGAT     AUPRC=0.3094  AUROC=0.6273  F1=0.3247
+
+  [SCAFDS variants — Track B]
+    ep= 50  loss=0.4166  AUPRC=0.3383
+    ep=100  loss=0.2949  AUPRC=0.5042
+    ep=150  loss=0.2504  AUPRC=0.4996
+    ep=200  loss=0.2219  AUPRC=0.4861
+    ep=250  loss=0.2107  AUPRC=0.4655
+    ep=300  loss=0.2012  AUPRC=0.4669
+    ep= 50  loss=0.4698  AUPRC=0.2514
+    ep=100  loss=0.4172  AUPRC=0.1736
+    ep=150  loss=0.3505  AUPRC=0.1520
+    ep=200  loss=0.2942  AUPRC=0.1580
+    ep=250  loss=0.2674  AUPRC=0.1580
+    ep=300  loss=0.2612  AUPRC=0.1583
+    ep= 50  loss=0.4709  AUPRC=0.2673
+    ep=100  loss=0.4426  AUPRC=0.3362
+    ep=150  loss=0.3597  AUPRC=0.4963
+    ep=200  loss=0.3328  AUPRC=0.5763
+    ep=250  loss=0.3233  AUPRC=0.5861
+    ep=300  loss=0.3180  AUPRC=0.5867
+    ep= 50  loss=0.4501  AUPRC=0.2930
+    ep=100  loss=0.3589  AUPRC=0.3992
+    ep=150  loss=0.2694  AUPRC=0.4735
+    ep=200  loss=0.2268  AUPRC=0.4587
+    ep=250  loss=0.1961  AUPRC=0.4489
+    ep=300  loss=0.1912  AUPRC=0.4467
+    [NoFeedback] delta=0 expected — Section IV.G
+    SCAFDS          AUPRC=0.5042  AUROC=0.8187
+    NoEdge          AUPRC=0.2514  AUROC=0.5726
+    NoTemporal      AUPRC=0.5867  AUROC=0.8398
+    NoFusion        AUPRC=0.4735  AUROC=0.7888
+
+  [SAR auditability]
+    Layer 1 [LGB_TreeExplainer]: 0.3000  tau1=0.0033
+    Layer 2 [network]:  0.5000  tau2=-0.0930
+    Layer 3 [temporal]: 1.0000  tau3=0.0312
+    Overall grounding:  0.6000
+
+========================================================================
+TRACK A — TRANSACTION-LEVEL FRAUD DETECTION
+(IEEE-CIS dataset, 432 features, 590K transactions)
+Note: Track A models produce no institution-level forensic output
+========================================================================
+Model                       AUPRC                AUROC               F1      
+--------------------------------------------------------------------------
+Random Forest        0.5610+/-0.0077  0.8982+/-0.0023  0.5502+/-0.0077
+XGBoost              0.6512+/-0.0057  0.9323+/-0.0019  0.6163+/-0.0074
+LightGBM             0.7719+/-0.0053  0.9620+/-0.0018  0.7260+/-0.0060
+BiLSTM (Stage 4)     0.3816+/-0.0387  0.8073+/-0.0272  0.4429+/-0.0275
+
+========================================================================
+TRACK B — INSTITUTION-LEVEL INTERBANK FRAUD DETECTION
+(FDIC synthetic graph, 8,103 institutions, 169,800 edges)
+SCAFDS principal evaluation domain
+========================================================================
+Model                       AUPRC                AUROC               F1        Prec@50% 
+------------------------------------------------------------------------------------
+GCN [3]              0.2399+/-0.0156  0.5761+/-0.0118  0.2706+/-0.0080  0.1708
+GAT (node-only)      0.2603+/-0.0166  0.5941+/-0.0167  0.2788+/-0.0126  0.1766
+GraphSAGE-AML [1]    0.3564+/-0.0200  0.6651+/-0.0085  0.3596+/-0.0216  0.2001
+TemporalGAT [2]      0.2978+/-0.0179  0.6345+/-0.0078  0.3227+/-0.0169  0.1922
+SCAFDS (ours)        0.5148+/-0.0316  0.8017+/-0.0123  0.5082+/-0.0142  0.2442 dagger
+
+  Wilcoxon SCAFDS vs TemporalGAT (AUPRC): p<0.05  stat=0.000
+
+========================================================================
+TABLE II — ABLATION STUDY (Track B)
+========================================================================
+Variant                        AUPRC              AUROC              F1       delta-AUPRC 
+--------------------------------------------------------------------------------------
+SCAFDS (full)            0.5148+/-0.0316  0.8017+/-0.0123  0.5082+/-0.0142           ref
+SCAFDS-NoEdge            0.2486+/-0.0160  0.5855+/-0.0128  0.2769+/-0.0116       -0.2662
+SCAFDS-NoTemporal        0.5909+/-0.0134  0.8396+/-0.0065  0.5673+/-0.0142       +0.0761
+SCAFDS-NoFusion          0.4924+/-0.0415  0.7889+/-0.0213  0.4738+/-0.0327       -0.0224
+SCAFDS-NoFeedback        0.5148+/-0.0316  0.8017+/-0.0123  0.5082+/-0.0142       +0.0000
+
+  Note: NoFeedback delta=0 expected — Section IV.G
+
+========================================================================
+TABLE III — FORENSIC SAR AUDITABILITY
+========================================================================
+
+Metric                                           SCAFDS        Prior LLM-SAR     delta   
+--------------------------------------------------------------------------------------
+Layer 1: SHAP grounding (tau1)             0.3000+/-0.0000
+Layer 2: Network edge (tau2)               0.5000+/-0.0000
+Layer 3: Temporal attention (tau3)         1.0000+/-0.0000
+Overall Attribution Grounding              0.6000+/-0.0000
+Factual Accuracy (0.962 * overall)         0.5772+/-0.0000
+FinCEN Form 111 Compliance                 0.5868+/-0.0000
+
+  Note: Prior-art LLM-SAR comparison requires running reference [6]
+  on identical test cases. Reported as future work. Grounding rates
+  reflect absolute traceability to pipeline outputs above tau thresholds.
+
+  SHAP method: LGB_TreeExplainer
+
+Results saved to ./results_v3/
+
+Total runtime: 454.1 minutes

@@ -7,20 +7,20 @@
 
 Code, synthetic data and per-seed results for:
 
-> Uddin MN, Anik A, Orpita RT, Bhuiyan ER, Risalat M, Wali Ullah SM.
+> Uddin MN.
 > **An Explainable Graph Intelligence Framework for Human-Centric Interbank Fraud Surveillance and Attribution-Grounded Regulatory Narrative Generation.**
-> Submitted to *F1000Research*, 2026.
+> Submitted to *Digital* (MDPI), 2026 (manuscript digital-4718916; under editorial consideration).
 
 ## Status and relation to earlier versions
 - **arXiv:2605.18913 (v1, May 2026)** is an earlier, single-author version. It reported the synthetic Track B gain as support for the fraud-specific edge feature.
-- The **F1000Research article** adds identifiability diagnostics (orthogonal-edge controls, a sanity-check baseline, a corrected architecture and a 20-seed paired re-run) and a bank-level evaluation on IBM AMLWorld with a trivial exposure baseline. It finds **no demonstrated fraud-specific advantage** from the edge feature and supersedes the preprint's conclusion. The preprint's FDIC enforcement-action check is **withdrawn**: the synthetic graph's nodes do not correspond to real institutions, so real labels cannot be matched to them.
+- The **revised manuscript** (submitted to *Digital*, November 2026) adds identifiability diagnostics (orthogonal-edge controls, a sanity-check baseline, a corrected architecture and a 20-seed paired re-run) and a bank-level evaluation on IBM AMLWorld with a trivial exposure baseline. It finds **no demonstrated fraud-specific advantage** from the edge feature and supersedes the preprint's conclusion. The preprint's FDIC enforcement-action check is **withdrawn**: the synthetic graph's nodes do not correspond to real institutions, so real labels cannot be matched to them.
 
-## Repository contents (mapped to the article)
+## Repository contents (mapped to the manuscript)
 
-| Path | What it is | Article |
+| Path | What it is | Manuscript |
 |---|---|---|
 | `scafds_train_v3.py` | Track A (IEEE-CIS) and Track B (synthetic graph) training, baselines and ablations | Tables 3, 4 |
-| `scafds_train_final.py`, `patch_v2.py` | Earlier version of the training pipeline (arXiv v1); not used for the article's tables | – |
+| `scafds_train_final.py`, `patch_v2.py` | Earlier version of the training pipeline (arXiv v1); not used for the manuscript's tables | – |
 | `fdic_interbank_v2.zip` | Synthetic institution-level interbank graph (seed 42) | Table 2 |
 | `diagnostics/orthogonal_ablation.py` | Single-layer orthogonal-edge probe (10 seeds) | Results text |
 | `diagnostics/orthogonal_ablation_matched.py` | Matched NoTemporal control and sanity-check baseline, before the fix | Results text |
@@ -49,7 +49,7 @@ python amlworld/aml_graph_train_v2.py --trans HI-Small_Trans.csv --seeds 5 --epo
 ```
 `amlworld/trivial_baseline_check.py` reads the data from `/workspace/HI-Small_Trans.csv`; edit that path for your machine.
 
-**Note on SAR metrics.** `scafds_train_v3.py` contains a block that prints "Forensic SAR auditability" values, including a "factual accuracy" computed as a fixed multiple (0.962) of the grounding rate. This is a placeholder with no empirical basis. It is **not** reported in the article, which states that no SAR narratives were generated or evaluated. The optional LLM comparison path in `scafds_train_final.py` (needs `ANTHROPIC_API_KEY`) is likewise not used for any result.
+**Note on SAR metrics.** `scafds_train_v3.py` contains a block that prints "Forensic SAR auditability" values, including a "factual accuracy" computed as a fixed multiple (0.962) of the grounding rate. This is a placeholder with no empirical basis. It is **not** reported in the manuscript, which states that no SAR narratives were generated or evaluated. The optional LLM comparison path in `scafds_train_final.py` (needs `ANTHROPIC_API_KEY`) is likewise not used for any result.
 
 ## Licenses
 - **Code**: MIT (see `LICENSE`).

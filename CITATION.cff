@@ -10,18 +10,4 @@ authors:
     given-names: Mohammad Nasir
     affiliation: "Westcliff University"
     orcid: "https://orcid.org/0009-0009-0990-4616"
-  - family-names: Anik
-    given-names: Asaduzzaman
-    affiliation: "Northern University Bangladesh"
-  - family-names: Orpita
-    given-names: Rahnuma Tabassum
-    affiliation: "Stanton University"
-  - family-names: Bhuiyan
-    given-names: Eklachur Rahman
-    affiliation: "Washington University of Science and Technology"
-  - family-names: Risalat
-    given-names: Marjahan
-    affiliation: "Stanton University"
-  - family-names: Wali Ullah
-    given-names: SM
-    affiliation: "Stanton University"
+doi: "10.5281/zenodo.23485363"

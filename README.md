@@ -9,11 +9,11 @@ Code, synthetic data and per-seed results for:
 
 > Uddin MN.
 > **An Explainable Graph Intelligence Framework for Human-Centric Interbank Fraud Surveillance and Attribution-Grounded Regulatory Narrative Generation.**
-> Submitted to *Digital* (MDPI), 2026 (manuscript digital-4718916; under editorial consideration).
+> Under review at a peer-reviewed journal (2026).
 
 ## Status and relation to earlier versions
 - **arXiv:2605.18913 (v1, May 2026)** is an earlier, single-author version. It reported the synthetic Track B gain as support for the fraud-specific edge feature.
-- The **revised manuscript** (submitted to *Digital*, November 2026) adds identifiability diagnostics (orthogonal-edge controls, a sanity-check baseline, a corrected architecture and a 20-seed paired re-run) and a bank-level evaluation on IBM AMLWorld with a trivial exposure baseline. It finds **no demonstrated fraud-specific advantage** from the edge feature and supersedes the preprint's conclusion. The preprint's FDIC enforcement-action check is **withdrawn**: the synthetic graph's nodes do not correspond to real institutions, so real labels cannot be matched to them.
+- The **revised manuscript** (November 2026) adds identifiability diagnostics (orthogonal-edge controls, a sanity-check baseline, a corrected architecture and a 20-seed paired re-run) and a bank-level evaluation on IBM AMLWorld with a trivial exposure baseline. It finds **no demonstrated fraud-specific advantage** from the edge feature and supersedes the preprint's conclusion. The preprint's FDIC enforcement-action check is **withdrawn**: the synthetic graph's nodes do not correspond to real institutions, so real labels cannot be matched to them.
 
 ## Repository contents (mapped to the manuscript)
 
